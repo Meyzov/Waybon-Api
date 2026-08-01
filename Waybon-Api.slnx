@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Waybon.Api/Waybon.Api.csproj" />
+  <Project Path="Waybon.Application/Waybon.Application.csproj" />
+  <Project Path="Waybon.Domain/Waybon.Domain.csproj" />
+  <Project Path="Waybon.Infrastructure/Waybon.Infrastructure.csproj" />
+</Solution>

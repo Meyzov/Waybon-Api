@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>a8ddddd6-e9fa-49db-a705-aa0165baa437</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Waybon.Application\Waybon.Application.csproj" />
+    <ProjectReference Include="..\Waybon.Infrastructure\Waybon.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
