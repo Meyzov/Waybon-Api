@@ -12,6 +12,14 @@ namespace Waybon.Api.Middleware
 
         public async Task InvokeAsync(HttpContext context)
         {
+            var path = context.Request.Path;
+            if (path.StartsWithSegments("/api/health"))
+            {
+                await _next(context);
+                return;
+
+            }
+
             if (!context.Request.Headers.TryGetValue("X-Timestamp", out var timestampHeader) || !context.Request.Headers.TryGetValue("X-Signature", out var signatureHeader))
             {
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;
