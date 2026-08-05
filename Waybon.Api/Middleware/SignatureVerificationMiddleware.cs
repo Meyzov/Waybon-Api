@@ -13,7 +13,7 @@ namespace Waybon.Api.Middleware
         public async Task InvokeAsync(HttpContext context)
         {
             var path = context.Request.Path;
-            if (path.StartsWithSegments("/api/health"))
+            if (path.StartsWithSegments("/api/health") || path.StartsWithSegments("/api/metrics"))
             {
                 await _next(context);
                 return;
