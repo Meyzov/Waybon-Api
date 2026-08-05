@@ -1,6 +1,7 @@
 using Dapper;
 using Waybon.Api;
 using Waybon.Api.Hubs;
+using Waybon.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,8 @@ builder.Services.AddSignalR();
 var app = builder.Build();
 
 app.UseCors("AllowAll");
+app.UseMiddleware<SignatureVerificationMiddleware>();
+
 app.UseAuthorization();
 
 app.MapControllers();
