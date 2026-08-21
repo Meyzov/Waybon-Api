@@ -59,7 +59,7 @@ namespace Waybon.Infrastructure.Repositories
                 SELECT
                     U.user_id,
                     U.username,
-                    R.name as Rolename,
+                    R.name as role_name,
                     U.sharing_enabled,
                     S.last_activity_at,
                     B.blocked_by_me,

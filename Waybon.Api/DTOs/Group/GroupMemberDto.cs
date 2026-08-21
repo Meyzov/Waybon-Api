@@ -30,17 +30,17 @@
             }
         }
 
-        private string _rolname = string.Empty;
-        public string Rolname
+        private string _roleName = string.Empty;
+        public string RoleName
         {
             get
             {
-                return _rolname;
+                return _roleName;
             }
 
             set
             {
-                _rolname = value;
+                _roleName = value;
             }
         }
 
