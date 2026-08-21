@@ -98,7 +98,7 @@ namespace Waybon.Api.Controllers
                 {
                     UserId = m.UserId,
                     Username = m.Username,
-                    Rol = m.Rol,
+                    Rolname = m.Rolname,
                     SharingEnabled = m.SharingEnabled,
                     BlockedByMe = m.BlockedByMe,
                     BlockingMe = m.BlockingMe,

@@ -59,13 +59,14 @@ namespace Waybon.Infrastructure.Repositories
                 SELECT
                     U.user_id,
                     U.username,
-                    U.rol,
+                    R.name as Rolename,
                     U.sharing_enabled,
                     S.last_activity_at,
                     B.blocked_by_me,
                     B.blocking_me
                 FROM group_member AS G
                     JOIN app_user AS U ON U.user_id = G.user_id
+                    JOIN role AS R on R.role_id = U.role_id
                     LEFT JOIN session AS S ON S.user_id = U.user_id
                     CROSS JOIN LATERAL
                     (
