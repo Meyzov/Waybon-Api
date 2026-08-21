@@ -30,6 +30,20 @@
             }
         }
 
+        private string _rol = string.Empty;
+        public string Rol
+        {
+            get
+            {
+                return _rol;
+            }
+
+            set
+            {
+                _rol = value;
+            }
+        }
+
         private bool _sharingEnabled;
         public bool SharingEnabled
         {

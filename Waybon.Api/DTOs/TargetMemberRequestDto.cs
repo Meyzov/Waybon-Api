@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Waybon.Api.DTOs.Group
+namespace Waybon.Api.DTOs
 {
-    public class KickMemberRequestDto
+    public class TargetMemberRequestDto
     {
         [Required]
         private Guid _sessionId;

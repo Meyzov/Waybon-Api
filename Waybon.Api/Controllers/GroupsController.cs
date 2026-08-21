@@ -98,6 +98,7 @@ namespace Waybon.Api.Controllers
                 {
                     UserId = m.UserId,
                     Username = m.Username,
+                    Rol = m.Rol,
                     SharingEnabled = m.SharingEnabled,
                     BlockedByMe = m.BlockedByMe,
                     BlockingMe = m.BlockingMe,
@@ -125,7 +126,7 @@ namespace Waybon.Api.Controllers
         }
 
         [HttpPost("{groupId}/kick-member")]
-        public async Task<IActionResult> KickMember([FromRoute] int groupId, KickMemberRequestDto request)
+        public async Task<IActionResult> KickMember([FromRoute] int groupId, TargetMemberRequestDto request)
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _groupService.KickMemberAsync(groupId, userId, request.TargetUserId);

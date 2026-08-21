@@ -13,10 +13,10 @@ namespace Waybon.Api.Controllers
         private readonly AuthService _authService = authService;
 
         [HttpPost("block")]
-        public async Task<IActionResult> BlockUser(BlockUserRequestDto request)
+        public async Task<IActionResult> BlockUser(TargetMemberRequestDto request)
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
-            await _userService.BlockUserAsync(userId, request.BlockedUserId);
+            await _userService.BlockUserAsync(userId, request.TargetUserId);
             var response = new SuccessResponseDto
             {
                 Success = true
@@ -26,10 +26,10 @@ namespace Waybon.Api.Controllers
         }
 
         [HttpPost("unblock")]
-        public async Task<IActionResult> UnblockUser(BlockUserRequestDto request)
+        public async Task<IActionResult> UnblockUser(TargetMemberRequestDto request)
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
-            await _userService.UnblockUserAsync(userId, request.BlockedUserId);
+            await _userService.UnblockUserAsync(userId, request.TargetUserId);
             var response = new SuccessResponseDto
             {
                 Success = true
