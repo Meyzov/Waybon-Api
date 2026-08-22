@@ -5,34 +5,10 @@ namespace Waybon.Api.DTOs.Group
     public class JoinGroupRequestDto
     {
         [Required]
-        private Guid _sessionId;
-        public Guid SessionId
-        {
-            get
-            {
-                return _sessionId;
-            }
-
-            set
-            {
-                _sessionId = value;
-            }
-        }
+        public Guid SessionId { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 6)]
-        private string _joinCode = string.Empty;
-        public string JoinCode
-        {
-            get
-            {
-                return _joinCode;
-            }
-
-            set
-            {
-                _joinCode = value;
-            }
-        }
+        [StringLength(6, MinimumLength = 6)]
+        public string JoinCode { get; set; } = string.Empty;
     }
 }

@@ -9,25 +9,15 @@ namespace Waybon.Application.Services
         private readonly ConcurrentDictionary<Guid, bool> _sharing = new();
         private readonly ConcurrentDictionary<Guid, HashSet<Guid>> _recipients = new();
 
-        public bool IsSharing(Guid userId)
-        {
-            return _sharing.TryGetValue(userId, out var sharing) && sharing;
-        }
+        private static readonly HashSet<Guid> EmptySet = [];
 
-        public void SetSharing(Guid userId, bool sharing)
-        {
-            _sharing[userId] = sharing;
-        }
+        public bool IsSharing(Guid userId) => _sharing.GetValueOrDefault(userId);
 
-        public IEnumerable<Guid> GetRecipients(Guid userId)
-        {
-            return _recipients.TryGetValue(userId, out var set) ? set : Enumerable.Empty<Guid>();
-        }
+        public void SetSharing(Guid userId, bool sharing) => _sharing[userId] = sharing;
 
-        public void SetRecipients(Guid userId, IEnumerable<Guid> ids)
-        {
-            _recipients[userId] = [.. ids];
-        }
+        public IEnumerable<Guid> GetRecipients(Guid userId) => _recipients.GetValueOrDefault(userId) ?? EmptySet;
+
+        public void SetRecipients(Guid userId, IEnumerable<Guid> ids) => _recipients[userId] = [.. ids];
 
         public void RemoveUser(Guid userId)
         {

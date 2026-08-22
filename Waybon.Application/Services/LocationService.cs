@@ -20,20 +20,10 @@ namespace Waybon.Application.Services
             }
 
             var recipientIds = _locationCache.GetRecipients(userId);
-            if (!recipientIds.Any())
-            {
-                return;
-            }
-
-            var connectionIds = new List<string>();
-            foreach (var recipientId in recipientIds)
-            {
-                var connId = _connectionManager.GetConnectionId(recipientId);
-                if (connId != null)
-                {
-                    connectionIds.Add(connId);
-                }
-            }
+            var connectionIds = recipientIds.Select(recipientId => _connectionManager.GetConnectionId(recipientId))
+                                            .Where(connId => connId != null)
+                                            .Cast<string>()
+                                            .ToList();
 
             if (connectionIds.Count == 0)
             {
@@ -55,10 +45,7 @@ namespace Waybon.Application.Services
             }
         }
 
-        public async Task RefreshUserAsync(Guid userId)
-        {
-            await WarmupUserAsync(userId);
-        }
+        public async Task RefreshUserAsync(Guid userId) => await WarmupUserAsync(userId);
 
         public async Task OnMembershipChangedAsync(int groupId)
         {
@@ -69,9 +56,6 @@ namespace Waybon.Application.Services
             }
         }
 
-        public void RemoveUserCache(Guid userId)
-        {
-            _locationCache.RemoveUser(userId);
-        }
+        public void RemoveUserCache(Guid userId) => _locationCache.RemoveUser(userId);
     }
 }

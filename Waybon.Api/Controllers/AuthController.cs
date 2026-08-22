@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Waybon.Api.DTOs;
 using Waybon.Api.DTOs.Auth;
+using Waybon.Api.DTOs.Global;
 using Waybon.Application.Services;
 
 namespace Waybon.Api.Controllers
@@ -14,13 +15,8 @@ namespace Waybon.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequestDto request)
         {
-            await _authService.RegisterAsync(request.Username, request.Email, request.Password, request.RoleName);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            await _authService.RegisterAsync(request.Username, request.Email, request.Password);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("login")]
@@ -43,12 +39,7 @@ namespace Waybon.Api.Controllers
         public async Task<IActionResult> Logout(SessionIdRequestDto request)
         {
             await _authService.LogoutAsync(request.SessionId);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
     }
 }

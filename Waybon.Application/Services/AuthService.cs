@@ -10,19 +10,17 @@ namespace Waybon.Application.Services
         private readonly ISessionRepository _sessionRepository = sessionRepository;
         private readonly IUserRepository _userRepository = userRepository;
 
-        public async Task RegisterAsync(string username, string email, string password, string roleName)
+        public async Task RegisterAsync(string username, string email, string password)
         {
-            var role = await _roleRepository.GetRoleByNameAsync(roleName) ?? throw new InvalidOperationException("Role not found.");
             var passwordHash = PasswordHasher.Hash(password);
             var newUser = new AppUser
             {
                 Username = username,
                 Email = email,
-                PasswordHash = passwordHash,
-                RoleId = role.RoleId
+                PasswordHash = passwordHash
             };
 
-            if (!await _userRepository.CreateUserAsync(newUser)) // email is unique in the database
+            if (!await _userRepository.CreateUserAsync(newUser))
             {
                 throw new InvalidOperationException("User registration failed due to a database error.");
             }

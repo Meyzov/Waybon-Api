@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Waybon.Api.DTOs.User
+namespace Waybon.Api.DTOs.Global
 {
-    public class UpdateSharingRequestDto
+    public class TargetMemberRequestDto
     {
         [Required]
         public Guid SessionId { get; set; }
 
         [Required]
-        public bool SharingEnabled { get; set; }
+        public Guid TargetUserId { get; set; }
     }
 }

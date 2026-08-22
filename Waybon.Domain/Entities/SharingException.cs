@@ -2,32 +2,8 @@
 {
     public class SharingException
     {
-        private Guid _sharerUserId;
-        public Guid SharerUserId
-        {
-            get
-            {
-                return _sharerUserId;
-            }
+        public Guid SharerUserId { get; set; }
 
-            set
-            {
-                _sharerUserId = value;
-            }
-        }
-
-        private Guid _blockedUserId;
-        public Guid BlockedUserId
-        {
-            get
-            {
-                return _blockedUserId;
-            }
-
-            set
-            {
-                _blockedUserId = value;
-            }
-        }
+        public Guid BlockedUserId { get; set; }
     }
 }

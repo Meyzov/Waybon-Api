@@ -14,15 +14,14 @@ namespace Waybon.Infrastructure.Repositories
             var sql =
             """
 
-                INSERT INTO app_user (username, email, password_hash, role_id)
-                VALUES (@Username, @Email, @PasswordHash, @RoleId)
+                INSERT INTO app_user (username, email, password_hash)
+                VALUES (@Username, @Email, @PasswordHash)
 
             """
             ;
             parameters.Add("Username", user.Username);
             parameters.Add("Email", user.Email);
             parameters.Add("PasswordHash", user.PasswordHash);
-            parameters.Add("RoleId", user.RoleId);
 
             using var connection = await _dbConnectionFactory.CreateConnectionAsync();
             var rowsAffected = await connection.ExecuteAsync(sql, parameters);

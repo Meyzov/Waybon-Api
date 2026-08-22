@@ -17,9 +17,6 @@ namespace Waybon.Application.Services
             }
 
             await _userNotifier.RefreshUserAsync(sharerUserId);
-
-            // the database has a trigger to prevent member role from blocking other users
-            // it also have a trigger to prevent a user from blocking itself
         }
 
         public async Task UnblockUserAsync(Guid sharerUserId, Guid blockedUserId)
@@ -40,8 +37,6 @@ namespace Waybon.Application.Services
             }
 
             await _userNotifier.RefreshUserAsync(userId);
-
-            // the database has a trigger to prevent member role from disabling their own sharing
         }
     }
 }

@@ -2,74 +2,14 @@
 {
     public class LoginResponseDto
     {
-        private Guid _sessionId;
-        public Guid SessionId
-        {
-            get
-            {
-                return _sessionId;
-            }
+        public Guid SessionId { get; set; }
 
-            set
-            {
-                _sessionId = value;
-            }
-        }
+        public Guid UserId { get; set; }
 
-        private Guid _userId;
-        public Guid UserId
-        {
-            get
-            {
-                return _userId;
-            }
+        public string Username { get; set; } = string.Empty;
 
-            set
-            {
-                _userId = value;
-            }
-        }
+        public string RoleName { get; set; } = string.Empty;
 
-        private string _username = string.Empty;
-        public string Username
-        {
-            get
-            {
-                return _username;
-            }
-
-            set
-            {
-                _username = value;
-            }
-        }
-
-        private string _roleName = string.Empty;
-        public string RoleName
-        {
-            get
-            {
-                return _roleName;
-            }
-
-            set
-            {
-                _roleName = value;
-            }
-        }
-
-        private bool _sharingEnabled;
-        public bool SharingEnabled
-        {
-            get
-            {
-                return _sharingEnabled;
-            }
-
-            set
-            {
-                _sharingEnabled = value;
-            }
-        }
+        public bool SharingEnabled { get; set; }
     }
 }

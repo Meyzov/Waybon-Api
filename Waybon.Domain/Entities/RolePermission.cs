@@ -2,32 +2,8 @@
 {
     public class RolePermission
     {
-        private int _roleId;
-        public int RoleId
-        {
-            get
-            {
-                return _roleId;
-            }
+        public int RoleId { get; set; }
 
-            set
-            {
-                _roleId = value;
-            }
-        }
-
-        private int _permissionId;
-        public int PermissionId
-        {
-            get
-            {
-                return _permissionId;
-            }
-
-            set
-            {
-                _permissionId = value;
-            }
-        }
+        public int PermissionId { get; set; }
     }
 }

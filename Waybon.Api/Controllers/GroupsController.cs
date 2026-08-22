@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Waybon.Api.DTOs.Group;
-using Waybon.Api.DTOs;
 using Waybon.Application.Services;
+using Waybon.Api.DTOs.Global;
 
 namespace Waybon.Api.Controllers
 {
@@ -17,12 +17,7 @@ namespace Waybon.Api.Controllers
         {
             var ownerUserId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _groupService.CreateGroupAsync(ownerUserId, request.Name);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("{groupId}/delete")]
@@ -30,12 +25,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _groupService.DeleteGroupAsync(groupId, userId);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("join")]
@@ -43,12 +33,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _groupService.JoinGroupAsync(userId, request.JoinCode);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("{groupId}/regenerate-code")]
@@ -102,9 +87,6 @@ namespace Waybon.Api.Controllers
                     SharingEnabled = m.SharingEnabled,
                     BlockedByMe = m.BlockedByMe,
                     BlockingMe = m.BlockingMe,
-                    Latitude = m.Latitude,
-                    Longitude = m.Longitude,
-                    LocationUpdatedAt = m.LocationUpdatedAt,
                     LastActivityAt = m.LastActivityAt
                 }
             );
@@ -117,12 +99,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _groupService.LeaveGroupAsync(groupId, userId);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("{groupId}/kick-member")]
@@ -130,12 +107,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _groupService.KickMemberAsync(groupId, userId, request.TargetUserId);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
     }
 }

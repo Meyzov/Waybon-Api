@@ -2,144 +2,18 @@
 {
     public class GroupMemberDetail
     {
-        private Guid _userId;
-        public Guid UserId
-        {
-            get
-            {
-                return _userId;
-            }
+        public Guid UserId { get; set; }
 
-            set
-            {
-                _userId = value;
-            }
-        }
+        public string Username { get; set; } = string.Empty;
 
-        private string _username = string.Empty;
-        public string Username
-        {
-            get
-            {
-                return _username;
-            }
+        public string RoleName { get; set; } = string.Empty;
 
-            set
-            {
-                _username = value;
-            }
-        }
+        public bool SharingEnabled { get; set; }
 
-        private string _roleName = string.Empty;
-        public string RoleName
-        {
-            get
-            {
-                return _roleName;
-            }
+        public bool BlockedByMe { get; set; }
 
-            set
-            {
-                _roleName = value;
-            }
-        }
+        public bool BlockingMe { get; set; }
 
-        private bool _sharingEnabled;
-        public bool SharingEnabled
-        {
-            get
-            {
-                return _sharingEnabled;
-            }
-
-            set
-            {
-                _sharingEnabled = value;
-            }
-        }
-
-        private bool _blockedByMe;
-        public bool BlockedByMe
-        {
-            get
-            {
-                return _blockedByMe;
-            }
-
-            set
-            {
-                _blockedByMe = value;
-            }
-        }
-
-        private bool _blockingMe;
-        public bool BlockingMe
-        {
-            get
-            {
-                return _blockingMe;
-            }
-
-            set
-            {
-                _blockingMe = value;
-            }
-        }
-
-        private DateTime? _lastActivityAt;
-        public DateTime? LastActivityAt
-        {
-            get
-            {
-                return _lastActivityAt;
-            }
-
-            set
-            {
-                _lastActivityAt = value;
-            }
-        }
-
-        private double? _latitude;
-        public double? Latitude
-        {
-            get
-            {
-                return _latitude;
-            }
-
-            set
-            {
-                _latitude = value;
-            }
-        }
-
-        private double? _longitude;
-        public double? Longitude
-        {
-            get
-            {
-                return _longitude;
-            }
-
-            set
-            {
-                _longitude = value;
-            }
-        }
-
-        private DateTime? _locationUpdatedAt;
-        public DateTime? LocationUpdatedAt
-        {
-            get
-            {
-                return _locationUpdatedAt;
-            }
-
-            set
-            {
-                _locationUpdatedAt = value;
-            }
-        }
+        public DateTime? LastActivityAt { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Waybon.Api.DTOs;
+using Waybon.Api.DTOs.Global;
 using Waybon.Api.DTOs.User;
 using Waybon.Application.Services;
 
@@ -17,12 +17,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _userService.BlockUserAsync(userId, request.TargetUserId);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("unblock")]
@@ -30,12 +25,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _userService.UnblockUserAsync(userId, request.TargetUserId);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
 
         [HttpPost("sharing")]
@@ -43,12 +33,7 @@ namespace Waybon.Api.Controllers
         {
             var userId = await _authService.GetUserIdFromSessionAsync(request.SessionId);
             await _userService.UpdateSharingEnabledAsync(userId, request.SharingEnabled);
-            var response = new SuccessResponseDto
-            {
-                Success = true
-            };
-
-            return Ok(response);
+            return Ok(new SuccessResponseDto());
         }
     }
 }

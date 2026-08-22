@@ -5,34 +5,10 @@ namespace Waybon.Api.DTOs.Group
     public class CreateGroupRequestDto
     {
         [Required]
-        private Guid _sessionId;
-        public Guid SessionId
-        {
-            get
-            {
-                return _sessionId;
-            }
-
-            set
-            {
-                _sessionId = value;
-            }
-        }
+        public Guid SessionId { get; set; }
 
         [Required]
-        [StringLength(100, MinimumLength = 1)]
-        private string _name = string.Empty;
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-            }
-        }
+        [StringLength(30, MinimumLength = 1)]
+        public string Name { get; set; } = string.Empty;
     }
 }

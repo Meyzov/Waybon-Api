@@ -7,9 +7,6 @@ namespace Waybon.Api.Controllers
     public class HealthController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok(new { status = "ok", time = DateTime.UtcNow });
-        }
+        public IActionResult Get() => Ok(new { status = "ok", time = DateTime.UtcNow });
     }
 }

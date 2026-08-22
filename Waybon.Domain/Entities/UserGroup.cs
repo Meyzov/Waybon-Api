@@ -2,102 +2,18 @@
 {
     public class UserGroup
     {
-        private int _groupId;
-        public int GroupId
-        {
-            get
-            {
-                return _groupId;
-            }
+        public int GroupId { get; set; }
 
-            set
-            {
-                _groupId = value;
-            }
-        }
+        public Guid OwnerUserId { get; set; }
 
-        private Guid _ownerUserId;
-        public Guid OwnerUserId
-        {
-            get
-            {
-                return _ownerUserId;
-            }
+        public string Username { get; set; } = string.Empty;
 
-            set
-            {
-                _ownerUserId = value;
-            }
-        }
+        public string Name { get; set; } = string.Empty;
 
-        private string _username = string.Empty;
-        public string Username
-        {
-            get
-            {
-                return _username;
-            }
+        public string JoinCode { get; set; } = string.Empty;
 
-            set
-            {
-                _username = value;
-            }
-        }
+        public DateTime JoinCodeExpiresAt { get; set; }
 
-        private string _name = string.Empty;
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-            }
-        }
-
-        private string _joinCode = string.Empty;
-        public string JoinCode
-        {
-            get
-            {
-                return _joinCode;
-            }
-
-            set
-            {
-                _joinCode = value;
-            }
-        }
-
-        private DateTime _joinCodeExpiresAt;
-        public DateTime JoinCodeExpiresAt
-        {
-            get
-            {
-                return _joinCodeExpiresAt;
-            }
-
-            set
-            {
-                _joinCodeExpiresAt = value;
-            }
-        }
-
-        private DateTime _createdAt;
-        public DateTime CreatedAt
-        {
-            get
-            {
-                return _createdAt;
-            }
-
-            set
-            {
-                _createdAt = value;
-            }
-        }
+        public DateTime CreatedAt { get; set; }
     }
 }

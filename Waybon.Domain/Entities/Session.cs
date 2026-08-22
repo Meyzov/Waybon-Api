@@ -2,60 +2,12 @@
 {
     public class Session
     {
-        private Guid _sessionId;
-        public Guid SessionId
-        {
-            get
-            {
-                return _sessionId;
-            }
+        public Guid SessionId { get; set; }
 
-            set
-            {
-                _sessionId = value;
-            }
-        }
+        public Guid UserId { get; set; }
 
-        private Guid _userId;
-        public Guid UserId
-        {
-            get
-            {
-                return _userId;
-            }
+        public DateTime CreatedAt { get; set; }
 
-            set
-            {
-                _userId = value;
-            }
-        }
-
-        private DateTime _createdAt;
-        public DateTime CreatedAt
-        {
-            get
-            {
-                return _createdAt;
-            }
-
-            set
-            {
-                _createdAt = value;
-            }
-        }
-
-        private DateTime _lastActivityAt;
-        public DateTime LastActivityAt
-        {
-            get
-            {
-                return _lastActivityAt;
-            }
-
-            set
-            {
-                _lastActivityAt = value;
-            }
-        }
+        public DateTime LastActivityAt { get; set; }
     }
 }

@@ -11,16 +11,7 @@ namespace Waybon.Infrastructure.Data
         public async Task<IDbConnection> CreateConnectionAsync() // Remember to close the connection once used
         {
             var connection = new NpgsqlConnection(_connectionString);
-            try
-            {
-                await connection.OpenAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Database error: {ex.Message}");
-                throw;
-            }
-
+            await connection.OpenAsync();
             return connection;
         }
     }
